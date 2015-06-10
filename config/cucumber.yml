@@ -1,0 +1,21 @@
+---
+default: --profile local
+aws:
+  URL_HOME='http://home.prototype.govuk.svc.tutum.io:3001'
+  URL_PROTOTYPES='http://prototypes.prototype.govuk.svc.tutum.io:3003'
+  URL_PEOPLE='http://people.prototype.govuk.svc.tutum.io:3004'
+  URL_LOCATIONS='http://locations.prototype.govuk.svc.tutum.io:8001'
+  --format pretty
+devenv:
+  URL_HOME='http://xgs.local'
+  URL_PROTOTYPES='http://prototypes.xgs.local'
+  URL_PEOPLE='http://people.xgs.local'
+  URL_LOCATIONS='http://locations.xgs.local'
+  --format pretty
+heroku:
+  URL_HOME='http://x-gov-services-home.herokuapp.com'
+  URL_PROTOTYPES='http://x-gov-services-prototypes.herokuapp.com'
+  URL_PEOPLE='http://x-gov-services-people.herokuapp.com'
+  URL_LOCATIONS='http://x-gov-services-locations.herokuapp.com'
+  --format progress
+

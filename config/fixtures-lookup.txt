@@ -1,0 +1,3 @@
+#new_registration,fixtures/new_registration.json
+profile,https://raw.githubusercontent.com/crossgovernmentservices/prototypes/master/application/data/civilservant.json
+bad_profile,fixtures/bad_profile.json
