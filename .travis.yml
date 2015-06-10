@@ -1,0 +1,20 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.1.5
+install: true
+env:
+  global:
+  - URL_HOME='http://x-gov-services-home.herokuapp.com'
+  - URL_PROTOTYPES='http://x-gov-services-prototypes.herokuapp.com'
+  - URL_PEOPLE='http://x-gov-services-people.herokuapp.com'
+  - URL_LOCATIONS='http://x-gov-services-locations.herokuapp.com'
+  - secure: BqE8IWpLAKiJGS+pacAw4rW7FJiHerZgMMtt6gDaZRS8qmYAK0wyiEKyey07KhOrUiWxh37f8NVnkbmoM/T8LRTqmK0qTJfB/iPC34BxvkV4PiIMXM2hT3lu00C/TRopkUDaAGMlhJbwkqBeV5BgLq09LGW+lBVEf53vngDHxWhh0hLaPrEUUJDH+6LKV+l1eT8D631xdqr/Ojsk1Mj7huPLwPkzcOslhde84MXNKzzlOpz0ZP9o68YVeCS/PB6yTTtep55MVMWNd8178ASAZGYSjCL5VsdneWRI0YuMVumjlT1kP0NNPLuJyL+31nVkI6IoIckKGIlihkFRwPuRgx2rCqIMJz1q1sFg+t779aEzqwdrB7j/uj4jMERFUyRpocLc9wi7FwGN7A+ifMW4HSDfPiu36Q3Aw0/RCFSUHOsjGHraBUfRnyRoQ3OOyOBLLcf6CQwLHNQGYgQvq1DHcX28V2AmIrk3VEBLtGJlfSEdlucst5OUFfJvnbq5KxFQqPMhSrOdSSxFTY3sfmmXik/K3wWMcSy9qefxW3LuVHqcRwT8x9LllibNkFQ2x1w36nOKfxqvv3K1YgCnxTyr6QjEkYvsWPX6uis8POXUMHvy2bKnkZu+5+9JC/TYcqYaqGUCVboJ5gdhWV9Zhrp4S3RcCWgi3j+4NpjnlXny3YQ=
+before_install:
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+before_script:
+- bundle install
+script:
+- bundle exec cucumber -p heroku --format json --out report.json --format pretty
+- curl -X PUT -H 'Content-Type:application/json' -d @/home/travis/build/crossgovernmentservices/smoketests/report.json
+  https://xgs-tests.firebaseio.com/report.json?auth=$FIREBASE_TOKEN
