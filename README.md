@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/crossgovernmentservices/smoketests.svg?branch=master)](https://travis-ci.org/crossgovernmentservices/smoketests)
+
 # Service Tests
 
 Tests for cross government services.
