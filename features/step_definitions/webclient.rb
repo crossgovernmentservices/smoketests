@@ -6,15 +6,20 @@ end
 When(/^I click on element with (.+) '(.+)'$/) do |key, val|
   case key
   when 'id'
-    val = '#' + val
+    elem = find(:css, '#' + val)
   when 'class'
-    val = '.' + val
+    elem = first(:css, '.' + val)
   when 'xpath'
-    
+    elem = find(:xpath, val)
   else
     raise 'id or name required'
   end
-  find(val).click
+  elem.click
+end
+
+When(/^I create a profile with '(.+)'$/) do |email|
+  fill_in('Email', :with => email)
+  click_on('Create profile')
 end
 
 Then(/^I expect the page to have '(.+)'$/) do |content|

@@ -19,7 +19,12 @@ Feature: Confirm happy path
   Scenario: job search by skill search result is bookmarkable
     Given app prototypes
     When I visit /jobs/search_by_skill?q=Agile
-    And I click on element with xpath '//*[@id="content"]/section/ul/li[1]/div/div'
+    And I click on element with class 'jd__save'
     Then I expect the page to have 'Create GOV.UK profile'
 
-
+  Scenario: job search by skills allows creation of profile
+    Given app prototypes
+    When I visit /jobs/search_by_skill?q=Agile
+    And I click on element with class 'jd__save'
+    And I create a profile with 'servant@example.org'
+    Then I expect the page to have 'Sign out servant@example.org'
