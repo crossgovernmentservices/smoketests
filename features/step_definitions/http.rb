@@ -1,9 +1,5 @@
 require 'erb'
 
-When(/^I visit (\/\S*?)$/) do |url|
-  visit(@app + url)
-end
-
 When(/^I (\w+) to (\/\S*?)$/) do |verb, url|
   $logger.debug("Making request to #{url}")
   $logger.debug("hydrated: #{@client.hydrater(url)}")
@@ -86,7 +82,7 @@ end
 
 Then(/^I should get a (.+) status code$/) do |code|
   message = @client.last_body["status"] rescue ""
-  assert_equal code.to_i, @client.last_code, message
+  expect(code.to_i).to eq(@client.last_code)
 end
 
 Then(/^there should be no response body$/) do
