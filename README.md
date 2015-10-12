@@ -4,7 +4,13 @@
 
 Tests for cross government services.
 
+## Prerequisites
+1. Ruby
+2. [PhantomJS](http://phantomjs.org/)
+
 ## Installing
+
+First install phantomjs. (brew, npm or even just download binary from site above)
 
 Install all dependencies with [Bundler](http://bundler.io/):
 

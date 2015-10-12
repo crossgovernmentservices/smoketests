@@ -7,10 +7,10 @@ aws:
   URL_LOCATIONS='http://locations.prototype.govuk.svc.tutum.io:8001'
   --format pretty
 devenv:
-  URL_HOME='http://xgs.local'
-  URL_PROTOTYPES='http://prototypes.xgs.local'
-  URL_PEOPLE='http://people.xgs.local'
-  URL_LOCATIONS='http://locations.xgs.local'
+  URL_HOME='http://www.cstools.local'
+  URL_PROTOTYPES='http://prototypes.cstools.local'
+  URL_PEOPLE='http://people.cstools.local'
+  URL_LOCATIONS='http://locations.cstools.local'
   --format pretty
 heroku:
   URL_HOME='http://x-gov-services-home.herokuapp.com'
